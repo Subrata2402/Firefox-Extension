@@ -1,6 +1,11 @@
 // background.js
 let intervalId = null;
 
+function playAudio() {
+	const audio = new Audio('alarm.wav');
+	audio.play();
+}
+
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
 	if (message.action === "start") {
 		browser.notifications.create({
@@ -9,6 +14,9 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
 			title: "Reload Started!",
 			message: `The page will reload every ${message.timerValue} seconds.`,
 		});
+
+		playAudio();
+
 		intervalId = setInterval(() => {
 			browser.tabs.reload(message.tabId);
 		}, message.timerValue * 1000);
@@ -19,6 +27,9 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
 			title: "Reload Stopped!",
 			message: `The page will no longer reload.`,
 		});
+
+		playAudio();
+
 		clearInterval(intervalId);
 	}
 });
@@ -37,8 +48,7 @@ browser.runtime.onConnect.addListener((port) => {
 				message: "A question has been posted on the Chegg.",
 			});
 
-			const audio = new Audio('alarm.wav');
-			audio.play();
+			playAudio();
 
 			console.log('Received message in background script:', message.data);
 

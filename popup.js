@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		const tabs = await browser.tabs.query({ active: true, currentWindow: true });
 		const timerValue = document.getElementById('interval').value;
 		browser.runtime.sendMessage({ action: 'start', tabId: tabs[0].id, timerValue: timerValue });
-		updateTimer();
 	});
 
 	stopButton = document.getElementById('stopButton');

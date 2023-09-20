@@ -1,0 +1,64 @@
+/* style.css */
+* {
+    /* box-sizing: border-box; */
+    border-radius: 10px;
+    font-family: sans-serif;
+}
+
+body {
+    width: 400px;
+    padding: 10px;
+    background-color: darkslategray;
+    color: white;
+    text-align: center;
+    border: 5px solid green;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+input {
+    height: 20px;
+    width: 80px;
+    border: 2px solid rgb(71, 245, 245);
+    background-color: darkslategray;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+.interval {
+    font-size: 20px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 60px;
+}
+
+button {
+    border: none;
+    background-color: blueviolet;
+    border-radius: 5px;
+    padding: 10px 35px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(85, 2, 162);
+}
+
+button:active {
+    opacity: 0.8;
+}
+
+#timerDisplay {
+    font-size: 40px;
+    padding-top: 20px;
+}

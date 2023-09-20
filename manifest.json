@@ -1,0 +1,39 @@
+{
+    "manifest_version": 3,
+    "name": "Auto Refresh and Notify",
+    "version": "1.0",
+    "description": "Automatically refresh tabs and notify on data change",
+    "permissions": [
+        "activeTab",
+        "storage",
+        "notifications"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "refresh.png",
+            "48": "refresh.png",
+            "128": "refresh.png"
+        }
+    },
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "icons": {
+        "16": "refresh.png",
+        "48": "refresh.png",
+        "128": "refresh.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ]
+}

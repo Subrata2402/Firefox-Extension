@@ -1,5 +1,4 @@
 // background.js
-let intervalId = null;
 
 function sendNotification(title, message) {
 	browser.notifications.create({
@@ -8,21 +7,31 @@ function sendNotification(title, message) {
 		title: title,
 		message: message,
 	});
-	const audio = new Audio('alarm.wav');
-	audio.play();
+
+	// const audio = new Audio('alarm.wav');
+	// audio.play();
 }
 
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
 	if (message.action === "start") {
-		sendNotification("Reload Started!", `The page will reload every ${message.timerValue} seconds.`);	
-
+		sendNotification("Reload Started!", `The page will reload every ${message.timerValue} seconds.`);
 		intervalId = setInterval(() => {
 			browser.tabs.reload(message.tabId);
 		}, message.timerValue * 1000);
+		data = {
+			"intervalId": intervalId,
+			"timerValue": message.timerValue,
+			"isRefreshing": true
+		}
+		localStorage.setItem(message.tabId, JSON.stringify(data));
 	} else if (message.action === "stop") {
+		data = JSON.parse(localStorage.getItem(message.tabId));
+		if (!data) {
+			return;
+		}
+		clearInterval(data.intervalId);
+		localStorage.removeItem(message.tabId);
 		sendNotification("Reload Stopped!", `The page will no longer reload.`);
-
-		clearInterval(intervalId);
 	}
 });
 

@@ -16,6 +16,14 @@ document.addEventListener("DOMContentLoaded", function () {
 		//storing value in local storage
 		browser.runtime.sendMessage({ action: "toggleCheckboxAlarm", value: isChecked });
 	});
+
+	const selectRingtone = document.getElementById("ringtones");
+	selectRingtone.addEventListener("change", function () {
+		const ringtone = selectRingtone.value;
+		browser.storage.local.set({ ringtone: ringtone });
+		//storing value in local storage
+		browser.runtime.sendMessage({ action: "ringtone", value: ringtone });
+	});
 });
 
 function getCheck() {
@@ -38,4 +46,20 @@ function getCheck() {
 			document.getElementById('toggleCheckboxAlarm').checked = false;
 		}
 	});
+
+	browser.storage.local.get("ringtone", function (data) {
+		const value = data.ringtone;
+		// console.log(value);
+		if (value) {
+			document.getElementById('ringtones').value = value;
+		} else {
+			document.getElementById('ringtones').value = 'ringtone-1';
+		}
+	});
 }
+
+document.getElementById('test-ringtone').addEventListener('click', function () {
+	const ringtone = document.getElementById('ringtones').value;
+	const audio = new Audio(`ringtones/${ringtone}.mp3`);
+	audio.play();
+});

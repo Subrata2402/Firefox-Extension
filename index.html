@@ -24,15 +24,29 @@
         <p style="text-align: center;">Enabling this option would Automatically click on the 'Start Solving' button when
             the question is available.
         </p>
-        <!-- <hr> -->
         <p style="text-align: center;">(Could be useful when you miss the notifications and 10 minutes has passed. You
             would still have nearly 2 hours to answer.)
         </p>
-        <p class="toggleLable">Get alarm after receive the question ⏰</p>
-        <label class="switch">
-            <input type="checkbox" id="toggleCheckboxAlarm">
-            <span class="slider round"></span>
-        </label>
+        <p class="toggleLable">Play a ringtone after receive the question ⏰</p>
+        <div class="ring-container">
+            <label class="switch">
+                <input type="checkbox" id="toggleCheckboxAlarm">
+                <span class="slider round"></span>
+            </label>
+            <select name="ringtone" id="ringtones">
+                <option value="ringtone-1">Ringtone 1</option>
+                <option value="ringtone-2">Ringtone 2</option>
+                <option value="ringtone-3">Ringtone 3</option>
+                <option value="ringtone-4">Ringtone 4</option>
+                <option value="ringtone-5">Ringtone 5</option>
+                <option value="ringtone-6">Ringtone 6</option>
+                <option value="ringtone-7">Ringtone 7</option>
+                <option value="ringtone-8">Ringtone 8</option>
+                <option value="ringtone-9">Ringtone 9</option>
+                <option value="ringtone-10">Ringtone 10</option>
+            </select>
+            <button id="test-ringtone">Test</button>
+        </div>
         <a href="./instructions.html" class="instructions">How to use the Extension ?</a>
     </div>
 

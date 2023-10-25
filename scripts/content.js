@@ -5,18 +5,18 @@ setTimeout(function () {
 		const header = document.querySelector("h4");
 
 		const firstLIne = document.createElement('p');
-		// const lineOne = document.createTextNode("Chegg Question Notifier is running in the background.")
-		// firstLIne.appendChild(lineOne);
+		const lineOne = document.createTextNode("Chegg Question Notifier is running in the background.")
+		firstLIne.appendChild(lineOne);
 		firstLIne.setAttribute("style", "color:#d67102; font-family:sans-serif; font-size:20px")
-		firstLIne.innerHTML = `Chegg Question Notifier is running in the background. Refresh in <span id="timerMessage" style="color:blue;">00:${Math.floor(x / 1000)}</span> seconds.`;
-		setInterval(() => {
-			x = x - 1000;
-			const timer = document.getElementById("timerMessage");
-			if (timer) {
-				seconds = Math.floor(x / 1000 % 60) < 10 ? `0${Math.floor(x / 1000 % 60)}`: Math.floor(x / 1000 % 60);
-				timer.innerHTML = `00:${seconds}`;
-			}
-		}, 1000)
+		// firstLIne.innerHTML = `Chegg Question Notifier is running in the background. Refresh in <span id="timerMessage" style="color:blue;">00:${Math.floor(x / 1000)}</span> seconds.`;
+		// setInterval(() => {
+		// 	x = x - 1000;
+		// 	const timer = document.getElementById("timerMessage");
+		// 	if (timer) {
+		// 		seconds = Math.floor(x / 1000 % 60) < 10 ? `0${Math.floor(x / 1000 % 60)}`: Math.floor(x / 1000 % 60);
+		// 		timer.innerHTML = `00:${seconds}`;
+		// 	}
+		// }, 1000)
 		const space = document.createElement('p');
 		const emptySpace = document.createTextNode(".")
 		space.appendChild(emptySpace);

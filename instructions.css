@@ -53,21 +53,25 @@ a {
 }
 
 .go-back {
+    display: flex;
+    justify-content: center;
+}
+
+.go-back a {
     font-size: 20px;
     font-weight: bold;
     background-color: green;
     max-width: fit-content;
     text-align: center;
-    margin: auto;
     padding: 10px 15px;
     border-radius: 5px;
 }
 
-.go-back:hover {
+.go-back a:hover {
     background-color: rgb(2, 75, 2);
     transform: translate3d(0, -2px, 0);
 }
 
-.go-back:active {
+.go-back a:active {
     transform: translateY(2px);
 }

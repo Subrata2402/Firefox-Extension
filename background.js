@@ -1,6 +1,5 @@
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
 		if (request.time === '1') {
-			const audio = new Audio('lokiverse.mp3');
 			browser.notifications.create({
 				type: "basic",
 				iconUrl: "images/Chegg_icon.png",
@@ -10,9 +9,12 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
 			});
 			browser.storage.local.get("myVariableAlarm", function (data) {
 				const value = data.myVariableAlarm;
-				// console.log(value);
 				if (value) {
-					audio.play();
+					browser.storage.local.get("ringtone", function (data) {
+						const value = data.ringtone;
+						var audio = new Audio('ringtones/' + value + '.mp3');
+						audio.play();
+					});
 				}
 			});
 		}

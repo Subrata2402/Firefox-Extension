@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="title">
+        <h1>Chegg Question Notifier</h1>
+        <img class="igg" src="/images/Chegg_icon.png" alt="Logo">
+    </div>
+
+    <div class="toggle">
+        <p class="toggleLable">Automatically opt to answer the question:</p>
+        <label class="switch">
+            <input type="checkbox" id="toggleCheckbox">
+            <span class="slider round"></span>
+        </label>
+        <p style="text-align: center;">Enabling this option would Automatically click on the 'Start Solving' button when
+            the question is available.
+        </p>
+        <!-- <hr> -->
+        <p style="text-align: center;">(Could be useful when you miss the notifications and 10 minutes has passed. You
+            would still have nearly 2 hours to answer.)
+        </p>
+        <p class="toggleLable">Get alarm after receive the question ⏰</p>
+        <label class="switch">
+            <input type="checkbox" id="toggleCheckboxAlarm">
+            <span class="slider round"></span>
+        </label>
+        <a href="./instructions.html" class="instructions">How to use the Extension ?</a>
+    </div>
+
+    <script src="/popup.js"></script>
+</body>
+
+</html>

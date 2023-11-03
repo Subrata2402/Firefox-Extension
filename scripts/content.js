@@ -42,7 +42,6 @@ setTimeout(function () {
 
 			browser.storage.local.get("myVariable", function (data) { //checking prefered choice of "auto answering from local storage"
 				const value = data.myVariable;
-				// console.log(value);
 				if (value) {
 					if (btn) {
 						btn.click();
